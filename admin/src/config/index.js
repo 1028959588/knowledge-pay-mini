@@ -10,17 +10,17 @@ const ENV = import.meta.env.MODE || 'development'
 // API 配置
 const API_CONFIG = {
   development: {
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'http://8.138.195.169:8080/api',
     timeout: 30000,
     debug: true
   },
   staging: {
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'http://8.138.195.169:8080/api',
     timeout: 30000,
     debug: true
   },
   production: {
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'http://8.138.195.169:8080/api',
     timeout: 30000,
     debug: false
   }

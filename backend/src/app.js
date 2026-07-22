@@ -82,6 +82,10 @@ app.use('/api/crawler/zhihu', zhihuCrawler)
 const zhihuFeedloom = require('./api/crawler/zhihu-feedloom')
 app.use('/api/crawler/zhihu-feedloom', zhihuFeedloom)
 
+// 确保 settings 路由已注册
+const settingsRoutes = require('./api/settings')
+app.use('/api/settings', settingsRoutes)
+
 // ============================================================
 // 静态文件服务（放在 API 路由之后）
 // ============================================================

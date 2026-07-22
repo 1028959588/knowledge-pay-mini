@@ -106,6 +106,13 @@
         "navigationBarTitleText": "更换邮箱",
         "navigationBarBackgroundColor": "#FFFFFF"
       }
+    },
+    {
+      "path": "pages/login/agreement",
+      "style": {
+        "navigationBarTitleText": "协议",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
     }
   ],
   "globalStyle": {

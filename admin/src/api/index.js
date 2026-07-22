@@ -192,6 +192,22 @@ export const settingsAPI = {
   },
   stats: () => {
     return request({ url: '/admin/settings/stats' })
+  },
+  
+  // 获取协议
+  getAgreement: (type) => {
+    return request({
+      url: `/settings/agreement?type=${type}`
+    })
+  },
+
+  // 更新协议
+  updateAgreement: (type, content) => {
+    return request({
+      url: '/settings/agreement',
+      method: 'PUT',
+      data: { type, content }
+    })
   }
 }
 

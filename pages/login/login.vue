@@ -12,7 +12,7 @@
       <view class="logo-wrapper">
         <text class="logo-icon">📚</text>
       </view>
-      <text class="app-name">知识付费</text>
+      <text class="app-name">小吴知识库</text>
       <text class="app-slogan">让知识更有价值</text>
     </view>
 
@@ -43,12 +43,17 @@
           <text class="email-icon">✉️</text>
           <text>邮箱登录</text>
         </button>
-        <text class="email-tip">支持验证码登录 / 密码登录 · 首次登录自动注册</text>
+        <text class="email-tip">首次登录即自动注册</text>
       </view>
 
-      <!-- ===== 底部版权 ===== -->
+      <!-- ===== 底部版权（增加可点击链接） ===== -->
       <view class="footer">
-        <text>登录即代表同意《用户协议》和《隐私政策》</text>
+        <text>
+          登录即代表同意
+          <text class="link-text" @tap="goToAgreement('user')">《用户协议》</text>
+          和
+          <text class="link-text" @tap="goToAgreement('privacy')">《隐私政策》</text>
+        </text>
       </view>
     </view>
   </view>
@@ -130,6 +135,15 @@ const handleWxLogin = () => {
 // ============================================================
 const goToEmailLogin = () => {
   uni.navigateTo({ url: '/pages/login/email-login' })
+}
+
+// ============================================================
+// 跳转协议/隐私政策
+// ============================================================
+const goToAgreement = (type) => {
+  uni.navigateTo({
+    url: `/pages/login/agreement?type=${type}`
+  })
 }
 </script>
 
@@ -380,7 +394,7 @@ $border-radius: 24rpx;
 }
 
 // ============================================================
-// 底部版权
+// 底部版权（更新：增加可点击链接）
 // ============================================================
 .footer {
   margin-top: 40rpx;
@@ -390,6 +404,18 @@ $border-radius: 24rpx;
     font-size: 22rpx;
     color: $text-hint;
     letter-spacing: 1rpx;
+    line-height: 1.8;
+  }
+  
+  .link-text {
+    color: $primary;
+    font-weight: 500;
+    text-decoration: underline;
+    padding: 4rpx 0;
+    
+    &:active {
+      opacity: 0.6;
+    }
   }
 }
 </style>

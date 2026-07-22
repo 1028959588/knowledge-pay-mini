@@ -5,10 +5,10 @@
 // ============================================================
 
 // 🔧 开发环境（本地测试）
-const BASE_URL = 'http://192.168.1.42:8080/api'
+// const BASE_URL = 'http://192.168.1.42:8080/api'
 
 // 🚀 生产环境（服务器部署）
-// const BASE_URL = 'http://8.138.195.169:8080/api'
+const BASE_URL = 'http://8.138.195.169:8080/api'
 
 // 🌐 正式域名（备案通过后使用）
 // const BASE_URL = 'https://api.wxtool.vip/api'
@@ -297,5 +297,26 @@ export const articleAPI = {
       request({ url: `/articles/${id}` })
     )
     return Promise.allSettled(promises)
+  }
+}
+
+
+// ============================================================
+// 系统设置 API
+// ============================================================
+export const settingsAPI = {
+  // 获取协议内容
+  getAgreement: (type) => {
+    return request({
+      url: `/settings/agreement?type=${type}`
+    })
+  },
+  // 更新协议内容
+  updateAgreement: (type, content) => {
+    return request({
+      url: '/settings/agreement',
+      method: 'PUT',
+      data: { type, content }
+    })
   }
 }
